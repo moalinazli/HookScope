@@ -1,0 +1,30 @@
+name: Test
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python-version: ["3.10", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Verify wheel checksum
+        run: python -c "import hashlib, pathlib; p=pathlib.Path('hookscope-1.5.0-py3-none-any.whl'); assert hashlib.sha256(p.read_bytes()).hexdigest() == '4abf598778963c0a7366a22d1e0945cf08ceba97611d41c21981193666e8e6ba'"
+      - name: Install release wheel
+        run: python -m pip install --no-deps hookscope-1.5.0-py3-none-any.whl
+      - name: CLI smoke test
+        run: hookscope --version
+      - name: Scan synthetic fixture
+        run: hookscope scan --root examples/synthetic-snapshot --strict --format json --output fixture-results.json
+      - name: Unit tests
+        run: python -m unittest discover -s tests -v
