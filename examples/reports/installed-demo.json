@@ -1,0 +1,398 @@
+{
+  "scan_type": "snapshot",
+  "target": "/mnt/data/hookscope-v1.2.0/examples/synthetic-snapshot",
+  "complete": true,
+  "stats": {
+    "visited_files": 11,
+    "site_directories": 2,
+    "artifacts": 6
+  },
+  "issues": [],
+  "environments": [
+    {
+      "site_directory": "usr/lib/python3.15/site-packages",
+      "venv_prefix": null,
+      "include_system_site_packages": null,
+      "startup_artifact_count": 3
+    },
+    {
+      "site_directory": "venv/lib/python3.15/site-packages",
+      "venv_prefix": "venv",
+      "include_system_site_packages": false,
+      "startup_artifact_count": 3
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "usr/lib/python3.15/site-packages/example.pth",
+      "kind": "pth",
+      "location": "site_directory",
+      "environment": null,
+      "python_version": "3.15",
+      "startup_status": "suppressed_by_matching_start",
+      "sha256": "fdd3ade898731ec2f53d988f5427b380aece022051c330c5bf48550417ffef93",
+      "size_bytes": 77,
+      "filesystem": {
+        "mode": "0644",
+        "uid": 0,
+        "gid": 1001,
+        "mtime_ns": 1795323263581054903,
+        "ctime_ns": 1795327087481190418
+      },
+      "severity": "info",
+      "indicators": [
+        {
+          "code": "pth_executable_line",
+          "severity": "info",
+          "detail": "Executable import line in a processed .pth file",
+          "line": 2
+        },
+        {
+          "code": "matching_start",
+          "severity": "info",
+          "detail": "A same-stem .start file suppresses .pth executable lines in Python 3.15+"
+        }
+      ],
+      "imports": [
+        {
+          "module": "sample_bootstrap",
+          "line": 2
+        }
+      ],
+      "entry_points": [],
+      "path_extensions": [],
+      "record_integrity": null,
+      "errors": [],
+      "include_system_site_packages": null,
+      "ioc_matches": [],
+      "executable_lines": [
+        {
+          "line": 2,
+          "modules": [
+            "sample_bootstrap"
+          ],
+          "line_sha256": "578be9b2fed13be93e4cdf8f17c2f81facaa428e5339db9399d22daf6292ab1e"
+        }
+      ],
+      "resolved_imports": [
+        {
+          "module": "sample_bootstrap",
+          "status": "resolved_in_snapshot",
+          "candidates": [
+            "usr/lib/python3.15/site-packages/sample_bootstrap.py"
+          ],
+          "initializer_candidates": [],
+          "module_sha256": "43b66fe61203c7d47e0d2452c8fa289fcc1d6115775eb63ba38032acd75161a7",
+          "ioc_matches": [],
+          "static_signals": []
+        }
+      ]
+    },
+    {
+      "path": "usr/lib/python3.15/site-packages/example.start",
+      "kind": "start",
+      "location": "site_directory",
+      "environment": null,
+      "python_version": "3.15",
+      "startup_status": "candidate_executable",
+      "sha256": "fca28048749d5f3c65005a63b41ff7e9ebd581da7da532377c762acc78047cdf",
+      "size_bytes": 28,
+      "filesystem": {
+        "mode": "0644",
+        "uid": 0,
+        "gid": 1001,
+        "mtime_ns": 1795323263583579548,
+        "ctime_ns": 1795327087481569416
+      },
+      "severity": "medium",
+      "indicators": [
+        {
+          "code": "startup_entry_point",
+          "severity": "medium",
+          "detail": "Syntactically valid package startup callable declared in .start file"
+        }
+      ],
+      "imports": [],
+      "entry_points": [
+        {
+          "module": "sample_bootstrap",
+          "callable": "initialize",
+          "line": 1
+        }
+      ],
+      "path_extensions": [],
+      "record_integrity": null,
+      "errors": [],
+      "include_system_site_packages": null,
+      "ioc_matches": [],
+      "declared_entries": [
+        {
+          "line": 1,
+          "entry": "sample_bootstrap:initialize",
+          "valid": true
+        }
+      ],
+      "resolved_imports": [
+        {
+          "module": "sample_bootstrap",
+          "status": "resolved_in_snapshot",
+          "candidates": [
+            "usr/lib/python3.15/site-packages/sample_bootstrap.py"
+          ],
+          "initializer_candidates": [],
+          "module_sha256": "43b66fe61203c7d47e0d2452c8fa289fcc1d6115775eb63ba38032acd75161a7",
+          "ioc_matches": [],
+          "static_signals": []
+        }
+      ]
+    },
+    {
+      "path": "usr/lib/python3.15/site-packages/sitecustomize.py",
+      "kind": "customize",
+      "location": "site_directory",
+      "environment": null,
+      "python_version": "3.15",
+      "startup_status": "candidate_import_path_unverified",
+      "sha256": "5c47b8f64c858336389913a9f982768cdd302bea182c6299e3f76ad9fb8dd4e7",
+      "size_bytes": 61,
+      "filesystem": {
+        "mode": "0644",
+        "uid": 0,
+        "gid": 1001,
+        "mtime_ns": 1795323263584950313,
+        "ctime_ns": 1795327087481679561
+      },
+      "severity": "low",
+      "indicators": [
+        {
+          "code": "customize_module",
+          "severity": "low",
+          "detail": "Customize module found; import path precedence is not established"
+        }
+      ],
+      "imports": [],
+      "entry_points": [],
+      "path_extensions": [],
+      "record_integrity": null,
+      "errors": [],
+      "include_system_site_packages": null,
+      "ioc_matches": []
+    },
+    {
+      "path": "venv/lib/python3.15/site-packages/demo.pth",
+      "kind": "pth",
+      "location": "site_directory",
+      "environment": "venv",
+      "python_version": "3.15",
+      "startup_status": "suppressed_by_matching_start",
+      "sha256": "4bfdb929387007bf807cd2f2249e2301f815c3a10fce0e3f456e5359214cbbd6",
+      "size_bytes": 20,
+      "filesystem": {
+        "mode": "0644",
+        "uid": 0,
+        "gid": 1001,
+        "mtime_ns": 1795326393338380673,
+        "ctime_ns": 1795327087482561013
+      },
+      "severity": "info",
+      "indicators": [
+        {
+          "code": "pth_executable_line",
+          "severity": "info",
+          "detail": "Executable import line in a processed .pth file",
+          "line": 1
+        },
+        {
+          "code": "matching_start",
+          "severity": "info",
+          "detail": "A same-stem .start file suppresses .pth executable lines in Python 3.15+"
+        }
+      ],
+      "imports": [
+        {
+          "module": "example_hook",
+          "line": 1
+        }
+      ],
+      "entry_points": [],
+      "path_extensions": [],
+      "record_integrity": null,
+      "errors": [],
+      "include_system_site_packages": false,
+      "ioc_matches": [],
+      "executable_lines": [
+        {
+          "line": 1,
+          "modules": [
+            "example_hook"
+          ],
+          "line_sha256": "dc3afe4e83a631a6e6856057950d971be2b62dc5741a3907823cd40cd278f62a"
+        }
+      ],
+      "resolved_imports": [
+        {
+          "module": "example_hook",
+          "status": "resolved_in_snapshot",
+          "candidates": [
+            "venv/lib/python3.15/site-packages/example_hook.py"
+          ],
+          "initializer_candidates": [],
+          "module_sha256": "f4871c53f92f499eb2721c3fb5693ab9dfc240ae2f397eb7aa6ab14e68ef3d70",
+          "ioc_matches": [],
+          "static_signals": []
+        }
+      ]
+    },
+    {
+      "path": "venv/lib/python3.15/site-packages/demo.start",
+      "kind": "start",
+      "location": "site_directory",
+      "environment": "venv",
+      "python_version": "3.15",
+      "startup_status": "candidate_executable",
+      "sha256": "45b5afae62f9c7caf146550a5ce066d111c3e65a058e0a1ee36c8963b6b92310",
+      "size_bytes": 24,
+      "filesystem": {
+        "mode": "0644",
+        "uid": 0,
+        "gid": 1001,
+        "mtime_ns": 1795326393339530006,
+        "ctime_ns": 1795327087482717147
+      },
+      "severity": "medium",
+      "indicators": [
+        {
+          "code": "startup_entry_point",
+          "severity": "medium",
+          "detail": "Syntactically valid package startup callable declared in .start file"
+        }
+      ],
+      "imports": [],
+      "entry_points": [
+        {
+          "module": "example_hook",
+          "callable": "initialize",
+          "line": 1
+        }
+      ],
+      "path_extensions": [],
+      "record_integrity": null,
+      "errors": [],
+      "include_system_site_packages": false,
+      "ioc_matches": [],
+      "declared_entries": [
+        {
+          "line": 1,
+          "entry": "example_hook:initialize",
+          "valid": true
+        }
+      ],
+      "resolved_imports": [
+        {
+          "module": "example_hook",
+          "status": "resolved_in_snapshot",
+          "candidates": [
+            "venv/lib/python3.15/site-packages/example_hook.py"
+          ],
+          "initializer_candidates": [],
+          "module_sha256": "f4871c53f92f499eb2721c3fb5693ab9dfc240ae2f397eb7aa6ab14e68ef3d70",
+          "ioc_matches": [],
+          "static_signals": []
+        }
+      ]
+    },
+    {
+      "path": "venv/lib/python3.15/site-packages/unpaired.pth",
+      "kind": "pth",
+      "location": "site_directory",
+      "environment": "venv",
+      "python_version": "3.15",
+      "startup_status": "candidate_executable",
+      "sha256": "5aa29ca1b036391894813b2d7b7e2ad80fcfb5e62cdcb0d422b559b65560e42b",
+      "size_bytes": 15,
+      "filesystem": {
+        "mode": "0644",
+        "uid": 0,
+        "gid": 1001,
+        "mtime_ns": 1795326393340562253,
+        "ctime_ns": 1795327087482802915
+      },
+      "severity": "medium",
+      "indicators": [
+        {
+          "code": "pth_executable_line",
+          "severity": "medium",
+          "detail": "Executable import line in a processed .pth file",
+          "line": 1
+        }
+      ],
+      "imports": [
+        {
+          "module": "pkg.sub",
+          "line": 1
+        }
+      ],
+      "entry_points": [],
+      "path_extensions": [],
+      "record_integrity": null,
+      "errors": [],
+      "include_system_site_packages": false,
+      "ioc_matches": [],
+      "executable_lines": [
+        {
+          "line": 1,
+          "modules": [
+            "pkg.sub"
+          ],
+          "line_sha256": "be9a5e6a54023add46f05488181ac31e0c03b3b98888e2422814d434333251e2"
+        }
+      ],
+      "resolved_imports": [
+        {
+          "module": "pkg.sub",
+          "status": "resolved_in_snapshot",
+          "candidates": [
+            "venv/lib/python3.15/site-packages/pkg/sub.py"
+          ],
+          "initializer_candidates": [
+            "venv/lib/python3.15/site-packages/pkg/__init__.py"
+          ],
+          "module_sha256": "765b5085b1e04f987dcf4249bab6a02bd9e90dd355579677716cdb70bc8e715e",
+          "ioc_matches": [],
+          "static_signals": [],
+          "parent_initializers": [
+            {
+              "path": "venv/lib/python3.15/site-packages/pkg/__init__.py",
+              "sha256": "dc71c7f8552d5543ddc513004818d64775c952afb4e293f4734b01988e6a29c2",
+              "static_signals": [],
+              "ioc_matches": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "schema_version": "1.0",
+  "tool": {
+    "name": "HookScope",
+    "version": "1.2.0",
+    "technique": "T1546.018"
+  },
+  "generated_at": "2026-11-22T06:04:35.337451+00:00",
+  "summary": {
+    "by_severity": {
+      "info": 2,
+      "low": 1,
+      "medium": 3,
+      "high": 0
+    },
+    "artifacts_with_errors": 0,
+    "known_ioc_matches": 0
+  },
+  "limitations": [
+    "Static, offline artifact analysis; no target Python code is imported or executed.",
+    "Startup status and module resolution are candidates, not proof of interpreter execution.",
+    "Runtime flags, sys.path alterations, ._pth files, sitecustomize precedence and system-site inheritance are not fully modeled.",
+    "A SHA-256 match identifies a reported artifact; it does not establish compromise by itself."
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "scan_type": "wheel",
+  "target": "/mnt/data/hookscope-v1.1.0/examples/synthetic-wheel/demo-1.0-py3-none-any.whl",
+  "sha256": "76b7322b56c76565f2255bd11d498675c3f6e53d8dbd1f0ac0396156aefc322a",
+  "complete": true,
+  "stats": {
+    "artifacts": 2,
+    "members": 6,
+    "expanded_size_bytes": 705
+  },
+  "issues": [],
+  "environments": [
+    {
+      "wheel_root_library": "purelib",
+      "installed": false
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "demo-1.0.data/purelib/sample.pth",
+      "kind": "pth",
+      "location": "wheel_library_candidate",
+      "environment": null,
+      "python_version": "3.15",
+      "startup_status": "suppressed_by_matching_start",
+      "sha256": "c61fd014963c82bc1f7ee8fa4fb2195e08488780e0251b37c3255d34c9aa2416",
+      "size_bytes": 46,
+      "filesystem": null,
+      "severity": "info",
+      "indicators": [
+        {
+          "code": "pth_executable_line",
+          "severity": "info",
+          "detail": "Executable import line in a processed .pth file",
+          "line": 2
+        },
+        {
+          "code": "matching_start",
+          "severity": "info",
+          "detail": "A same-stem .start file suppresses .pth executable lines in Python 3.15+"
+        }
+      ],
+      "imports": [
+        {
+          "module": "example_bootstrap",
+          "line": 2
+        }
+      ],
+      "entry_points": [],
+      "path_extensions": [],
+      "record_integrity": "matches_record",
+      "errors": [],
+      "installed_path": "sample.pth",
+      "wheel_location": "purelib",
+      "installed_library": "purelib",
+      "deployment_state": "not_installed",
+      "ioc_matches": [],
+      "executable_lines": [
+        {
+          "line": 2,
+          "modules": [
+            "example_bootstrap"
+          ],
+          "line_sha256": "8f45ac634cc4d3d407ae3845d64bd042f0d08a5d3375aa4ef43966fbbc37ba8c"
+        }
+      ],
+      "resolved_imports": [
+        {
+          "module": "example_bootstrap",
+          "status": "resolved_in_snapshot",
+          "candidates": [
+            "demo-1.0.data/purelib/example_bootstrap.py"
+          ],
+          "initializer_candidates": [],
+          "module_sha256": "c7e7a56ef51855a7affe0f8eded515ebbc40b9d8e7cf164e0b3a93f466887817",
+          "ioc_matches": [],
+          "static_signals": []
+        }
+      ]
+    },
+    {
+      "path": "demo-1.0.data/purelib/sample.start",
+      "kind": "start",
+      "location": "wheel_library_candidate",
+      "environment": null,
+      "python_version": "3.15",
+      "startup_status": "candidate_executable",
+      "sha256": "1148c2c122e84e684ab2a85685f50fadd1c5a43e854f0f5f017ee94cedafe621",
+      "size_bytes": 29,
+      "filesystem": null,
+      "severity": "medium",
+      "indicators": [
+        {
+          "code": "startup_entry_point",
+          "severity": "medium",
+          "detail": "Syntactically valid package startup callable declared in .start file"
+        }
+      ],
+      "imports": [],
+      "entry_points": [
+        {
+          "module": "example_bootstrap",
+          "callable": "initialize",
+          "line": 1
+        }
+      ],
+      "path_extensions": [],
+      "record_integrity": "matches_record",
+      "errors": [],
+      "installed_path": "sample.start",
+      "wheel_location": "purelib",
+      "installed_library": "purelib",
+      "deployment_state": "not_installed",
+      "ioc_matches": [],
+      "declared_entries": [
+        {
+          "line": 1,
+          "entry": "example_bootstrap:initialize",
+          "valid": true
+        }
+      ],
+      "resolved_imports": [
+        {
+          "module": "example_bootstrap",
+          "status": "resolved_in_snapshot",
+          "candidates": [
+            "demo-1.0.data/purelib/example_bootstrap.py"
+          ],
+          "initializer_candidates": [],
+          "module_sha256": "c7e7a56ef51855a7affe0f8eded515ebbc40b9d8e7cf164e0b3a93f466887817",
+          "ioc_matches": [],
+          "static_signals": []
+        }
+      ]
+    }
+  ],
+  "schema_version": "1.0",
+  "tool": {
+    "name": "HookScope",
+    "version": "1.1.0",
+    "technique": "T1546.018"
+  },
+  "generated_at": "2026-11-22T05:46:35.950477+00:00",
+  "summary": {
+    "by_severity": {
+      "info": 1,
+      "low": 0,
+      "medium": 1,
+      "high": 0
+    },
+    "artifacts_with_errors": 0,
+    "known_ioc_matches": 0
+  },
+  "limitations": [
+    "Static, offline artifact analysis; no target Python code is imported or executed.",
+    "Startup status and module resolution are candidates, not proof of interpreter execution.",
+    "Runtime flags, sys.path alterations, ._pth files, sitecustomize precedence and system-site inheritance are not fully modeled.",
+    "A SHA-256 match identifies a reported artifact; it does not establish compromise by itself."
+  ]
+}

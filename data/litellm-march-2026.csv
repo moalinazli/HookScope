@@ -1,0 +1,10 @@
+Type,Role,Value,Campaign,SourceURL
+sha256,litellm_init.pth,71e35aef03099cd1f2d6446734273025a163597de93912df321ef118bf135238,March 2026 LiteLLM 1.82.8,https://www.endorlabs.com/learn/teampcp-isnt-done
+sha256,LiteLLM 1.82.7 wheel,8395c3268d5c5dbae1c7c6d4bb3c318c752ba4608cfcd90eb97ffb94a910eac2,March 2026,https://www.endorlabs.com/learn/teampcp-isnt-done
+sha256,LiteLLM 1.82.8 wheel,d2a0d5f564628773b6af7b9c11f6b86531a875bd2d186d7081ab62748a800ebb,March 2026,https://www.endorlabs.com/learn/teampcp-isnt-done
+sha256,proxy_server.py modified,a0d229be8efcb2f9135e2ad55ba275b76ddcfeb55fa4370e0a522a5bdee0120b,March 2026,https://www.endorlabs.com/learn/teampcp-isnt-done
+domain,exfil,models.litellm.cloud,March 2026,https://unit42.paloaltonetworks.com/teampcp-supply-chain-attacks/
+domain,payload distribution,checkmarx.zone,March 2026,https://www.endorlabs.com/learn/teampcp-isnt-done
+file,script,~/.config/sysmon/sysmon.py,March 2026 TeamPCP,https://www.endorlabs.com/learn/teampcp-isnt-done
+file,systemd unit,~/.config/systemd/user/sysmon.service,March 2026 TeamPCP,https://www.endorlabs.com/learn/teampcp-isnt-done
+filename,exfil archive,tpcp.tar.gz,March 2026 TeamPCP,https://www.endorlabs.com/learn/teampcp-isnt-done

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>HookScope · /mnt/data/hookscope-v1.1.0/examples/synthetic-wheel/demo-1.0-py3-none-any.whl</title>
+<style>
+:root {color-scheme:dark; font-family:ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif; background:#0e1117;color:#e6eaf1}
+body {max-width:1350px;margin:0 auto;padding:44px 28px} h1 {font-size:30px;letter-spacing:-.7px;margin:0}
+h2 {font-size:18px;margin-top:34px} .sub {color:#91a1b8;font-size:13px;margin-top:8px} .cards {display:flex;flex-wrap:wrap;gap:12px;margin:32px 0}
+.stat {background:#171e2b;border:1px solid #293345;border-radius:10px;padding:16px 24px;min-width:155px} .stat strong {font-size:26px;display:block} .stat small {color:#91a1b8}
+table {width:100%;border-collapse:collapse;table-layout:fixed;font-size:12px} td,th {text-align:left;padding:14px 10px;border-bottom:1px solid #253044;vertical-align:top;overflow-wrap:anywhere}
+th {color:#9caac0;font-weight:500} code {font-family:ui-monospace,SFMono-Regular,Consolas,monospace} .hash {font-size:10px;color:#b9c5d5}
+.level {border-radius:4px;padding:4px 7px;font-size:10px;font-weight:700} .high {background:#51262b;color:#ffc8ce} .medium {background:#483514;color:#ffe39e}
+.low {background:#1c3850;color:#b8e4ff} .info {background:#283341;color:#c1cedf} li {margin:6px 0;color:#bac4d4}
+footer {color:#8b99ad;font-size:12px;margin-top:45px;border-top:1px solid #293345;padding-top:18px}
+</style></head><body><header><h1>HookScope</h1><div class="sub">T1546.018 · Offline Python startup artifact review · 2026-11-22T05:46:36.574572+00:00</div>
+<div class="sub">Target: <code>/mnt/data/hookscope-v1.1.0/examples/synthetic-wheel/demo-1.0-py3-none-any.whl</code> · Complete: true</div></header>
+<section class="cards"><div class="stat"><strong>2</strong><small>Startup artifacts</small></div>
+<div class="stat"><strong>0</strong><small>IOC hash matches</small></div>
+<div class="stat"><strong>0</strong><small>High-priority artifacts</small></div>
+<div class="stat"><strong>0</strong><small>Scan issues</small></div></section>
+<h2>Findings</h2><table><thead><tr><th style="width:7%">Priority</th><th style="width:23%">Path</th><th style="width:8%">Type</th>
+<th style="width:16%">Startup assessment</th><th style="width:24%">SHA-256</th><th>Indicators</th></tr></thead><tbody><tr><td><span class="level info">INFO</span></td><td><code>demo-1.0.data/purelib/sample.pth</code></td><td>pth</td><td>suppressed_by_matching_start</td><td><code class="hash">c61fd014963c82bc1f7ee8fa4fb2195e08488780e0251b37c3255d34c9aa2416</code></td><td>pth_executable_line matching_start </td></tr><tr><td><span class="level medium">MEDIUM</span></td><td><code>demo-1.0.data/purelib/sample.start</code></td><td>start</td><td>candidate_executable</td><td><code class="hash">1148c2c122e84e684ab2a85685f50fadd1c5a43e854f0f5f017ee94cedafe621</code></td><td>startup_entry_point </td></tr></tbody></table>
+<h2>Scan issues</h2><ul><li>No scan-level issues recorded.</li></ul>
+<footer>Static inventory only. HookScope does not execute inspected code or determine whether an attacker gained persistence. Report content may contain sensitive file paths.</footer>
+</body></html>

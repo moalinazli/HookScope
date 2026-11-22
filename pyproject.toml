@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hookscope"
+version = "1.5.0"
+description = "Offline Python startup hook artifact and wheel auditor"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{name = "Mohammad Ali Nazlabadi"}]
+keywords = ["forensics", "python", "startup", "persistence", "mitre", "t1546.018"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
+  "Topic :: Security",
+]
+
+[project.scripts]
+hookscope = "hookscope.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["hookscope*"]

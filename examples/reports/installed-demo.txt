@@ -1,0 +1,30 @@
+HookScope 1.2.0  |  MITRE T1546.018
+Target: /mnt/data/hookscope-v1.2.0/examples/synthetic-snapshot
+Scan: snapshot  |  Complete: True
+Artifacts: 6  |  IOC matches: 0
+
+[INFO  ] usr/lib/python3.15/site-packages/example.pth
+         pth  suppressed_by_matching_start  sha256=fdd3ade898731ec2f53d988f5427b380aece022051c330c5bf48550417ffef93
+         - pth_executable_line (line 2)
+         - matching_start
+         -> sample_bootstrap: resolved_in_snapshot
+[MEDIUM] usr/lib/python3.15/site-packages/example.start
+         start  candidate_executable  sha256=fca28048749d5f3c65005a63b41ff7e9ebd581da7da532377c762acc78047cdf
+         - startup_entry_point
+         -> sample_bootstrap: resolved_in_snapshot
+[LOW   ] usr/lib/python3.15/site-packages/sitecustomize.py
+         customize  candidate_import_path_unverified  sha256=5c47b8f64c858336389913a9f982768cdd302bea182c6299e3f76ad9fb8dd4e7
+         - customize_module
+[INFO  ] venv/lib/python3.15/site-packages/demo.pth
+         pth  suppressed_by_matching_start  sha256=4bfdb929387007bf807cd2f2249e2301f815c3a10fce0e3f456e5359214cbbd6
+         - pth_executable_line (line 1)
+         - matching_start
+         -> example_hook: resolved_in_snapshot
+[MEDIUM] venv/lib/python3.15/site-packages/demo.start
+         start  candidate_executable  sha256=45b5afae62f9c7caf146550a5ce066d111c3e65a058e0a1ee36c8963b6b92310
+         - startup_entry_point
+         -> example_hook: resolved_in_snapshot
+[MEDIUM] venv/lib/python3.15/site-packages/unpaired.pth
+         pth  candidate_executable  sha256=5aa29ca1b036391894813b2d7b7e2ad80fcfb5e62cdcb0d422b559b65560e42b
+         - pth_executable_line (line 1)
+         -> pkg.sub: resolved_in_snapshot
