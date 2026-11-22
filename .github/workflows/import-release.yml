@@ -1,0 +1,23 @@
+name: Import verified v1.5.0 source
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify and unpack published source
+        run: |
+          echo "63833a098968c97481e325dceabe217b0a4ea81407a00ded257ef1e42f830caa  HookScope-v1.5.0-GITHUB-CLEAN-SOURCE.zip" | sha256sum -c -
+          unzip -n HookScope-v1.5.0-GITHUB-CLEAN-SOURCE.zip -x "build/*" ".github/*" README.md LICENSE RELEASE_NOTES.md
+      - name: Commit source files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f .
+          if ! git diff --cached --quiet; then
+            git commit -m "Import verified HookScope 1.5.0 source tree"
+            git push
+          fi
