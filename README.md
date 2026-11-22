@@ -9,3 +9,6 @@ The source archive contains the application, documentation, tests, and CI workfl
 - [Release notes](RELEASE_NOTES.md)
 
 A finding is an investigation lead, not proof of compromise. See the documentation and audit in the source archive for scope and limitations.
+
+
+Related research: [Linux Persistence Fieldbook](https://github.com/moalinazli/linux-persistence-fieldbook).
